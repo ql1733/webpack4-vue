@@ -148,7 +148,7 @@
 /******/
 /******/
 /******/ 	// add entry module to deferred list
-/******/ 	deferredModules.push([11,1]);
+/******/ 	deferredModules.push([9,1]);
 /******/ 	// run deferred modules when ready
 /******/ 	return checkDeferredModules();
 /******/ })
@@ -157,23 +157,7 @@
 /* 0 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var content = __webpack_require__(5);
-
-if (typeof content === 'string') {
-  content = [[module.i, content, '']];
-}
-
-var options = {}
-
-options.insert = "head";
-options.singleton = false;
-
-var update = __webpack_require__(7)(content, options);
-
-if (content.locals) {
-  module.exports = content.locals;
-}
-
+// extracted by mini-css-extract-plugin
 
 /***/ }),
 /* 1 */,
@@ -183,27 +167,22 @@ if (content.locals) {
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var _node_modules_style_loader_1_0_0_style_loader_dist_index_js_node_modules_css_loader_3_2_0_css_loader_dist_cjs_js_node_modules_vue_loader_15_7_1_vue_loader_lib_loaders_stylePostLoader_js_node_modules_vue_loader_15_7_1_vue_loader_lib_index_js_vue_loader_options_App_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(0);
-/* harmony import */ var _node_modules_style_loader_1_0_0_style_loader_dist_index_js_node_modules_css_loader_3_2_0_css_loader_dist_cjs_js_node_modules_vue_loader_15_7_1_vue_loader_lib_loaders_stylePostLoader_js_node_modules_vue_loader_15_7_1_vue_loader_lib_index_js_vue_loader_options_App_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_1_0_0_style_loader_dist_index_js_node_modules_css_loader_3_2_0_css_loader_dist_cjs_js_node_modules_vue_loader_15_7_1_vue_loader_lib_loaders_stylePostLoader_js_node_modules_vue_loader_15_7_1_vue_loader_lib_index_js_vue_loader_options_App_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _node_modules_mini_css_extract_plugin_0_8_0_mini_css_extract_plugin_dist_loader_js_node_modules_css_loader_3_2_0_css_loader_dist_cjs_js_node_modules_vue_loader_15_7_1_vue_loader_lib_loaders_stylePostLoader_js_node_modules_sass_loader_8_0_0_sass_loader_dist_cjs_js_node_modules_postcss_loader_3_0_0_postcss_loader_src_index_js_node_modules_vue_loader_15_7_1_vue_loader_lib_index_js_vue_loader_options_App_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(0);
+/* harmony import */ var _node_modules_mini_css_extract_plugin_0_8_0_mini_css_extract_plugin_dist_loader_js_node_modules_css_loader_3_2_0_css_loader_dist_cjs_js_node_modules_vue_loader_15_7_1_vue_loader_lib_loaders_stylePostLoader_js_node_modules_sass_loader_8_0_0_sass_loader_dist_cjs_js_node_modules_postcss_loader_3_0_0_postcss_loader_src_index_js_node_modules_vue_loader_15_7_1_vue_loader_lib_index_js_vue_loader_options_App_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_mini_css_extract_plugin_0_8_0_mini_css_extract_plugin_dist_loader_js_node_modules_css_loader_3_2_0_css_loader_dist_cjs_js_node_modules_vue_loader_15_7_1_vue_loader_lib_loaders_stylePostLoader_js_node_modules_sass_loader_8_0_0_sass_loader_dist_cjs_js_node_modules_postcss_loader_3_0_0_postcss_loader_src_index_js_node_modules_vue_loader_15_7_1_vue_loader_lib_index_js_vue_loader_options_App_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_0__);
 /* unused harmony reexport * */
- /* unused harmony default export */ var _unused_webpack_default_export = (_node_modules_style_loader_1_0_0_style_loader_dist_index_js_node_modules_css_loader_3_2_0_css_loader_dist_cjs_js_node_modules_vue_loader_15_7_1_vue_loader_lib_loaders_stylePostLoader_js_node_modules_vue_loader_15_7_1_vue_loader_lib_index_js_vue_loader_options_App_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_0___default.a); 
+ /* unused harmony default export */ var _unused_webpack_default_export = (_node_modules_mini_css_extract_plugin_0_8_0_mini_css_extract_plugin_dist_loader_js_node_modules_css_loader_3_2_0_css_loader_dist_cjs_js_node_modules_vue_loader_15_7_1_vue_loader_lib_loaders_stylePostLoader_js_node_modules_sass_loader_8_0_0_sass_loader_dist_cjs_js_node_modules_postcss_loader_3_0_0_postcss_loader_src_index_js_node_modules_vue_loader_15_7_1_vue_loader_lib_index_js_vue_loader_options_App_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_0___default.a); 
 
 /***/ }),
 /* 5 */
 /***/ (function(module, exports, __webpack_require__) {
 
-exports = module.exports = __webpack_require__(6)(false);
-// Module
-exports.push([module.i, "\ndiv{\r\n    color:red;\n}\r\n", ""]);
-
+// extracted by mini-css-extract-plugin
 
 /***/ }),
 /* 6 */,
 /* 7 */,
 /* 8 */,
-/* 9 */,
-/* 10 */,
-/* 11 */
+/* 9 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -261,7 +240,11 @@ var component = Object(componentNormalizer["a" /* default */])(
 )
 
 /* harmony default export */ var App = (component.exports);
+// EXTERNAL MODULE: ./src/index.css
+var src = __webpack_require__(5);
+
 // CONCATENATED MODULE: ./src/index.js
+
 
 
 new vue_esm["a" /* default */]({

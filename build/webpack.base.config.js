@@ -40,10 +40,13 @@ module.exports = {
                 loader: 'vue-loader'
             },
             {
-                test:/\.css$/,
-                use:isDev?[
-                    'style-loader','css-loader'
-                ]:[MiniCssExtractPlugin.loader,css-loader]
+              test: /\.(sa|sc|c)ss$/,
+              use: [
+                MiniCssExtractPlugin.loader,
+                { loader: 'css-loader' },
+                { loader: 'sass-loader' },
+                { loader: 'postcss-loader' }
+              ]
             },
             {
                 test: /\.(png|jpg|gif)$/i,
@@ -81,11 +84,6 @@ module.exports = {
         ]
     },
     plugins:[
-        // new webpack.DefinePlugin({
-        //     'process.env':{
-        //         NODE_ENV:isDev?'development':'production'
-        //     }
-        // }),
         new HtmlWebpackPlugin({
             template:path.resolve(__dirname,'../index.html'),
             filename:'index.html',
