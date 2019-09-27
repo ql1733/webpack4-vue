@@ -1,29 +1,28 @@
 const path = require('path')
+const HtmlWebpackPlugin = require('html-webpack-plugin')
+const VueLoaderPlugin = require('vue-loader/lib/plugin')
 const webpack = require('webpack')
 const FriendlyErrorsPlugin = require('friendly-errors-webpack-plugin')
-const HtmlWebpackPlugin = require('html-webpack-plugin')
-const {VueLoaderPlugin} = require('vue-loader')
-
-const isProd = process.env.NODE_ENV === 'production'
+const MiniCssExtractPlugin = require('mini-css-extract-plugin')
+const isDev = process.env.NODE_ENV
 module.exports = {
-    entry:'../src/main.js',
+    entry:path.resolve(__dirname,'../src/index.js'),
     output:{
         path:path.resolve(__dirname,'../dist'),
-        filename:'bundle.js'
+        filename:'[name].[hash:8]js'
     },
-    resolve:{
-        alias:{
-            '@':path.join(__dirname,'../src'),
-            'vue$':'vue/dist/vue.esm.js'
+    mode:'development',
+    resolve: {
+        alias: {
+          'vue$': 'vue/dist/vue.esm.js',
+          '@': path.resolve(__dirname, '../src')
         },
-        extensions:['js','vue','json']
-    },
+        extensions: ['*', '.js', '.json', '.vue']
+      },
     module:{
         rules:[
             {
                 test:/\.js$/,
-                include:[path.resolve(__dirname,'../src')],
-                exclude:/node_modules/,
                 use:{
                     loader:'babel-loader',
                     options:{
@@ -32,18 +31,19 @@ module.exports = {
                             '@babel/plugin-syntax-dynamic-import'
                         ]
                     }
-                }
+                },
+                include:[path.resolve(__dirname,'../src')],
+                exclude:/node_modules/
             },
             {
                 test:/\.vue$/,
-                use:[
-                    {
-                        loader:'vue-loader',
-                        options:{
-                            preserveWhitespace: false
-                        }
-                    }
-                ]
+                loader: 'vue-loader'
+            },
+            {
+                test:/\.css$/,
+                use:isDev?[
+                    'style-loader','css-loader'
+                ]:[MiniCssExtractPlugin.loader,css-loader]
             },
             {
                 test: /\.(png|jpg|gif)$/i,
@@ -54,9 +54,9 @@ module.exports = {
                       limit: 8192,
                     },
                   },
-                ],
-              },
-              {
+                ]
+            },
+            {
                 test: /\.(mp4|webm|ogg|mp3|wav|flac|aac)(\?.*)?$/,
                 use: [
                     {
@@ -80,19 +80,22 @@ module.exports = {
               }
         ]
     },
-    performance: {
-        maxEntrypointSize: 400000,
-        hints: isProd ? 'warning' : false
-    },
     plugins:[
-        new VueLoaderPlugin(),
-        new FriendlyErrorsPlugin(),
+        // new webpack.DefinePlugin({
+        //     'process.env':{
+        //         NODE_ENV:isDev?'development':'production'
+        //     }
+        // }),
         new HtmlWebpackPlugin({
-            template:'./index.html',
+            template:path.resolve(__dirname,'../index.html'),
+            filename:'index.html',
             inject: 'body',
             minify: {
                 removeComments: true
             }
-        })
-    ]
+        }),
+        new VueLoaderPlugin(),
+        new FriendlyErrorsPlugin()
+    ],
+    
 }

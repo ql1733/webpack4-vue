@@ -1,17 +1,19 @@
 <template>
-    <div>{{msg}}</div>
+    <div>
+        {{msg}}
+    </div>
 </template>
 <script>
-    export default {
-        data(){
-            return {
-                msg:'hello world'
-            }
+export default {
+    data (){
+        return {
+            msg:'hello hhhhhgj'
         }
     }
+}
 </script>
 <style>
 div{
-    background:red;
+    color:red;
 }
 </style>
