@@ -6,7 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "cross-env NODE_ENV=development webpack-dev-server --config build/webpack.dev.config.js",
-    "build": "rimraf dist && cross-env NODE_ENV=production webpack --config build/webpack.pro.config.js"
+    "build": "rimraf dist && cross-env NODE_ENV=production webpack --config build/webpack.pro.config.js --colors --progress --display-modules --profile --json > stats.json"
   },
   "keywords": [],
   "author": "",

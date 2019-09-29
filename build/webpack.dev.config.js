@@ -11,7 +11,7 @@ module.exports = merge(base,{
         }),
     ],
     devServer:{
-        port:3008,
+        port:3018,
         hot:true,
         open:true
     }

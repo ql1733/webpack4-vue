@@ -9,7 +9,8 @@ module.exports = {
     entry:path.resolve(__dirname,'../src/index.js'),
     output:{
         path:path.resolve(__dirname,'../dist'),
-        filename:'[name].[hash:8]js'
+        filename:'[name].[hash:8].js',
+        chunkFilename:'[name].[hash:8].js'
     },
     mode:'development',
     resolve: {
@@ -41,7 +42,12 @@ module.exports = {
             },
             {
               test: /\.(sa|sc|c)ss$/,
-              use: [
+              use:isDev?[
+                {loader:'style-loader'},
+                { loader: 'css-loader' },
+                { loader: 'sass-loader' },
+                { loader: 'postcss-loader' }
+              ]: [
                 MiniCssExtractPlugin.loader,
                 { loader: 'css-loader' },
                 { loader: 'sass-loader' },
