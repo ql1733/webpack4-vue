@@ -22,6 +22,15 @@ module.exports = {
       },
     module:{
         rules:[
+          {
+            test: /\.(vue|js|jsx)$/,
+            loader: 'eslint-loader',
+            exclude: /node_modules/,
+            enforce: 'pre',
+            options: {
+              formatter: require('eslint-friendly-formatter')
+            }
+          },
             {
                 test:/\.js$/,
                 use:{
@@ -101,5 +110,5 @@ module.exports = {
         new VueLoaderPlugin(),
         new FriendlyErrorsPlugin()
     ],
-    
+    stats: 'errors-only'
 }
