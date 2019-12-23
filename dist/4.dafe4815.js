@@ -1,0 +1,2 @@
+(window.webpackJsonp=window.webpackJsonp||[]).push([[4],{12:function(n,t,e){"use strict";e.r(t);var u={data:function(){return{}}},l=e(3),r=Object(l.a)(u,function(){var n=this,t=n.$createElement;return(n._self._c||t)("div",[n._v("\n  list1\n")])},[],!1,null,null,null);t.default=r.exports}}]);
+//# sourceMappingURL=4.dafe4815.js.map

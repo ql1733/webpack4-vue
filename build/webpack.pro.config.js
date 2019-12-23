@@ -1,9 +1,12 @@
+const path = require('path')
 const merge = require('webpack-merge')
 const base = require('./webpack.base.config')
 const webpack = require('webpack')
 const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin')
 const UglifyJSPlugin = require('uglifyjs-webpack-plugin')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
+const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin
+const CopyWebpackPlugin = require('copy-webpack-plugin')
 module.exports = merge(base,{
     mode:'production',
     devtool: 'source-map',
@@ -15,7 +18,15 @@ module.exports = merge(base,{
             filename:  '[name].[hash].css' ,
             chunkFilename: '[id].[hash].css'
         }),
-        new OptimizeCSSAssetsPlugin({})
+        new OptimizeCSSAssetsPlugin({}),
+        new CopyWebpackPlugin([
+            {
+              from: path.resolve(__dirname, '../static'),
+              to: path.resolve(__dirname, '../dist/static'),
+              ignore: ['.*']
+            }
+        ]),
+        new BundleAnalyzerPlugin()
     ],
     optimization:{
         minimizer:[

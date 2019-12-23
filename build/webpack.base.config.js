@@ -20,6 +20,12 @@ module.exports = {
         },
         extensions: ['*', '.js', '.json', '.vue']
       },
+    externals: {
+      // echarts: 'echarts',
+      'vue': 'Vue',
+      'vue-router':'VueRouter',
+      'jquery': 'jQuery'
+    },
     module:{
         rules:[
           {
